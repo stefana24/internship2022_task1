@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.drivers {
+  width: 70vw;
+  margin: 0 auto;
+}
+
+header h1 {
+  text-transform: uppercase;
+  text-align: center;
+  padding: 20px;
+  border-top: 5px solid black;
+  border-right: 5px solid black;
+  margin-top: 3rem;
+}
+
+p#intro {
+  background-color: #ccc;
+  padding: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.card {
+  border: 1px solid black;
+}
+
+.driver-visual {
+  display: flex;
+  justify-content: space-between;
+}
+
+.driver-visual span {
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+.driver-img {
+  width: 300px;
+}
+
+.driver-intro {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #949498;
+}
+
+.driver-name {
+  border-bottom: 5px solid steelblue;
+}
+
+.description {
+  padding: 20px;
+}
+
+.description p {
+  font-size: 1.5rem;
+}
