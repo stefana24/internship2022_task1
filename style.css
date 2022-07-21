@@ -23,16 +23,25 @@ p#intro {
   padding: 20px;
   margin-top: 5px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
-  border: 1px solid black;
+  border-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-color: black;
+  min-width: 30%;
+  max-width: 400px;
 }
 
 .driver-visual {
@@ -55,14 +64,22 @@ p#intro {
   border-bottom: 1px solid #949498;
 }
 
-.driver-name {
-  border-bottom: 5px solid steelblue;
-}
-
 .description {
+  width: 300px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .description p {
   font-size: 1.5rem;
+}
+
+.scoreBtn {
+  padding: 0.5rem;
+  margin-top: 5px;
+  color: white;
+  font-size: 1rem;
 }
