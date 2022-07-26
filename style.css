@@ -4,82 +4,156 @@
   padding: 0;
 }
 
+body {
+  font-family: "Titillium Web", sans-serif;
+}
+
 .drivers {
   width: 70vw;
   margin: 0 auto;
 }
 
-header h1 {
-  text-transform: uppercase;
-  text-align: center;
-  padding: 20px;
-  border-top: 5px solid black;
-  border-right: 5px solid black;
+header > h1 {
+  text-transform: capitalize;
+  border-top-right-radius: 15px;
+  padding: 30px;
+  border-top: 10px solid black;
+  border-right: 10px solid black;
   margin-top: 3rem;
+  font-size: 50px;
+  line-height: 23px;
+  letter-spacing: 0.2px;
 }
 
 p#intro {
-  background-color: #ccc;
+  background-color: #fff;
   padding: 20px;
   margin-top: 5px;
   margin-bottom: 10px;
-  text-align: center;
+  padding-right: 10px;
+  text-align: left;
+  width: 50%;
+  font-size: 15px;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
   position: relative;
   justify-content: center;
   align-items: center;
 }
 
 .card {
-  border-width: 1px;
-  border-top-style: solid;
-  border-right-style: solid;
-  border-color: black;
+  border-top: 1px solid black;
+  border-top-right-radius: 10px;
+  border-right: 1px solid black;
   min-width: 30%;
   max-width: 400px;
 }
 
-.driver-visual {
+.card:hover {
+  border-top: 3px solid var(--text);
+  border-right: 3px solid var(--text);
+  padding-top: 20px;
+  transition: 0.1s all ease;
+}
+
+.driver_number_points {
   display: flex;
   justify-content: space-between;
-}
-
-.driver-visual span {
-  padding: 10px;
-  font-size: 1.5rem;
-}
-
-.driver-img {
-  width: 300px;
-}
-
-.driver-intro {
-  display: flex;
-  justify-content: space-around;
+  padding: 7px;
   border-bottom: 1px solid #949498;
 }
 
-.description {
-  width: 300px;
-  padding: 20px;
+.driver_points {
   display: flex;
   flex-direction: column;
+  text-align: center;
+}
+
+.number {
+  font-size: 2.5rem;
+}
+
+.number_point {
+  font-size: 1.7rem;
+}
+
+.label {
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 50px;
+  border-radius: 3px;
+  font-size: 20px;
+}
+
+.increaseScoreBtn {
+  width: 30px;
+  background-color: black;
+  color: #fff;
+  font-size: 30px;
+}
+
+.driver_name_country {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 5px;
+  border-bottom: 1px solid #949498;
+}
+
+.driver_name {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+
+.color {
+  border-left: 5px solid var(--text);
+  padding: 5px;
+}
+
+.lastName {
+  font-size: 25px;
+}
+
+.driver_team {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px;
+  letter-spacing: 0.5px;
+  color: #67676d;
+}
+
+.driver_image {
+  background-image: url("https://www.formula1.com/etc/designs/fom-website/images/patterns/plus-x1.png");
+  display: flex;
+}
+
+.driver_number {
+  width: 80px;
+  height: 80px;
+  border: 2px solid white;
+  align-self: flex-end;
+  text-align: center;
+  font-size: 50px;
+}
+
+.driver_img {
+  width: 300px;
+  height: auto;
+}
+
+.country_img_container {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.description p {
-  font-size: 1.5rem;
-}
-
-.scoreBtn {
-  padding: 0.5rem;
-  margin-top: 5px;
-  color: white;
-  font-size: 1rem;
+.countryImage {
+  width: 51px;
+  height: 36px;
 }

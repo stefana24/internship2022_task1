@@ -1,4 +1,5 @@
 import { mockData } from "./mockData.js";
+import { countries } from "./utils/countries.js";
 
 const cards = document.querySelector(".cards");
 
@@ -12,74 +13,56 @@ mockData.sort((a, b) =>
     : 1
 );
 
-mockData.forEach((driver) => {
+mockData.forEach((driver, index) => {
   const card = document.createElement("div");
-  card.classList.add("card");
+  let currentPoints = driver.points;
+  card.style.setProperty(`--text`, `${driver.hex}`);
+  card.innerHTML = `
+  <div class="card">
+    <div class="driver_number_points">
+      <h3 class="number">${index + 1}</h3>
+      <button class="increaseScoreBtn">+</button>
+      <div class="driver_points">
+        <p class="number_point">${driver.points}</p>
+        <p class="label">PTS</p>
+      </div>
+    </div>
 
-  const driverIntro = document.createElement("div");
-  driverIntro.classList.add("driver-intro");
-  const driverName = document.createElement("h2");
-  driverName.style = `border-bottom: 5px solid ${driver.hex};`;
-  driverName.textContent = `${driver.firstName} ${driver.lastName} `;
-  driverIntro.appendChild(driverName);
+    <div class="driver_name_country">
+      <div class="driver_name color">
+        <span>${driver.firstName}</span>
+        <span class="lastName">${driver.lastName}</span>
+      </div>
 
-  const country = document.createElement("h2");
-  country.textContent = driver.country;
-  driverIntro.appendChild(country);
+      <div class="country_img_container">
+        <img src="" class="countryImage">
+      </div>
 
-  card.appendChild(driverIntro);
+    </div>
 
-  const driverVisual = document.createElement("div");
-  driverVisual.classList.add("driver-visual");
-  const driverImg = document.createElement("img");
-  driverImg.src = driver.image;
-  driverImg.classList.add("driver-img");
-  driverVisual.appendChild(driverImg);
+    <div class="driver_team">${driver.team}</div>
 
-  const points = document.createElement("span");
-  points.textContent = `${driver.points} PTS`;
-  driverVisual.appendChild(points);
-  card.appendChild(driverVisual);
+    <div class="driver_image">
+      <button class="driver_number">${driver.number}</button>
+      <img src=${driver.image} class="driver_img">
+    </div>
 
-  const description = document.createElement("div");
-  description.classList.add("description");
-  const team = document.createElement("p");
-  team.textContent = `Team: ${driver.team}`;
-  description.appendChild(team);
+  </div>
+  `;
 
-  const number = document.createElement("p");
-  number.textContent = `No: ${driver.number}`;
-  description.appendChild(number);
-
-  card.appendChild(description);
-
-  card.addEventListener("mouseover", () => {
-    card.style = `
-    border-width: 5px;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-color: ${driver.hex};
-    `;
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style = `
-    border-width: 1px;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-color: black;`;
-  });
-
-  const increaseScoreBtn = document.createElement("button");
-  increaseScoreBtn.textContent = "Increase score";
-  increaseScoreBtn.classList.add("scoreBtn");
-  description.appendChild(increaseScoreBtn);
-  increaseScoreBtn.style = `background-color: ${driver.hex}`;
-
-  let modifiedPoints = driver.points;
+  const increaseScoreBtn = card.querySelector(".increaseScoreBtn");
+  const number_point = card.querySelector(".number_point");
   increaseScoreBtn.addEventListener("click", () => {
-    modifiedPoints++;
-    points.textContent = `${modifiedPoints} PTS`;
+    currentPoints++;
+    number_point.textContent = `${currentPoints}`;
+  });
+
+  const countryImage = card.querySelector(".countryImage");
+  countries.forEach((country) => {
+    if (country.id === driver.country) {
+      countryImage.src = country.flag;
+      countryImage.alt = driver.country;
+    }
   });
 
   cards.appendChild(card);
